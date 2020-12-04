@@ -64,17 +64,16 @@ if ('${settings.storage}' == 'true') {
 
   for (var i = 0; i < 2; i++){
     var n = resp.nodes[i];
-    n.volumes = [path];
-    n.volumeMounts = {};
+    n.volumes.push(path);
     n.volumeMounts[path] = {
         readOnly: false,
         sourcePath: path
     };
     if (storageCount > 1) {
-        n.volumeMounts[path].sourceNodeId = "${nodes.storage.master.id}";
-        n.volumeMounts[path].sourceAddressType = "NODE_GROUP";
+        n.volumeMounts[path].sourceNodeId: "${nodes.storage.master.id}",
+        n.volumeMounts[path].sourceAddressType: "NODE_GROUP"
     } else {
-        n.volumeMounts[path].sourceNodeGroup = "storage";
+        n.volumeMounts[path].sourceNodeGroup: "storage"
     }
   }
 }
