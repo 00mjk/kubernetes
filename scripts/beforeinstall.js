@@ -70,10 +70,10 @@ if ('${settings.storage}' == 'true') {
         sourcePath: path
     };
     if (storageCount > 1) {
-        n.volumeMounts[path].sourceNodeId: "${nodes.storage.master.id}",
-        n.volumeMounts[path].sourceAddressType: "NODE_GROUP"
+        n.volumeMounts[path].sourceNodeId = "${nodes.storage.master.id}";
+        n.volumeMounts[path].sourceAddressType = "NODE_GROUP";
     } else {
-        n.volumeMounts[path].sourceNodeGroup: "storage"
+        n.volumeMounts[path].sourceNodeGroup = "storage";
     }
   }
 }
