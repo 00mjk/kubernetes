@@ -5,7 +5,7 @@ var perEnv = "environment.maxnodescount",
     maxCloudletsPerRec = "environment.maxcloudletsperrec";
     diskIOPSlimit = "disk.iopslimit";
 var envsCount = jelastic.env.control.GetEnvs({lazy: true}).infos.length,
-    nodesPerProdEnv = 8,
+    nodesPerProdEnv = 9,
     nodesPerProdEnvWOStorage = 7,
     nodesPerDevEnv = 3,
     nodesPerDevEnvWOStorage = 2,
@@ -60,7 +60,7 @@ for (var i = 0; i < quotas.length; i++){
     }
 }
 var resp = {result:0};
-var url = "https://raw.githubusercontent.com/jelastic-jps/kubernetes/v1.18.10/configs/settings.yaml";
+var url = "https://raw.githubusercontent.com/jelastic-jps/kubernetes/v1.18.12/configs/settings.yaml";
 resp.settings = toNative(new org.yaml.snakeyaml.Yaml().load(new com.hivext.api.core.utils.Transport().get(url)));
 var f = resp.settings.fields;
 
